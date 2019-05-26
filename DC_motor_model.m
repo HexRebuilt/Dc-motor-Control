@@ -28,10 +28,11 @@ D = [0 ; 0];
 winc = [1 ;1]; %parameters uncertanties
 Bw =[0.0085 0.0006; 0.0603 0.0002];
 %% System creation
-sys = ss(A,B,C,D)
+sys = ss(A,B,C,D);
+sysd = c2d (sys,Ts);
 Q = 100 * eye(2);
 R = 1;
-[Kdlqr,S,E] = dlqr(A,B,Q,R)
+[Kdlqr,S,E] = dlqr(A,B,Q,R);
 Pr = S; %Pr is the terminal weight obtained through the LQR approach
 
 
